@@ -9,16 +9,22 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
-  "main": "./out/extension.js",
+  "activationEvents": [
+    "onLanguage:plaintext",
+    "onFileSystemChange",
+    "onDidOpenTextDocument"
+  ],
   "contributes": {
-    "commands": [
+    "languages": [
       {
-        "command": "td-copy-highlight.helloWorld",
-        "title": "Hello World"
+        "id": "plaintext",
+        "extensions": [
+          ".txt"
+        ]
       }
     ]
   },
+  "main": "./out/extension.js",
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
